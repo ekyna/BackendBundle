@@ -16,7 +16,11 @@
         "ekyna/core-bundle": "0.1.x-dev",
         "stfalcon/tinymce-bundle": "0.3.*@dev",
         "lankit/datatables-bundle": "*",
-        "sylius/resource-bundle": "1.0.*@dev"
+        "sylius/resource-bundle": "1.0.*@dev",
+        "braincrafted/bootstrap-bundle": "~2.0@alpha",
+        "twbs/bootstrap": "3.0.*",
+        "jquery/jquery": "1.10.*",
+        "stfalcon/tinymce-bundle": "0.3.*@dev"
     },
     "require-dev": {
     },
