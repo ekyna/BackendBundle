@@ -1,0 +1,33 @@
+{
+    "name": "ekyna/backend-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 Backend layout and utilities over SyliusResourceBundle",
+    "keywords": ["symfony2", "backend", "admin", "bundle"],
+    "homepage": "http://github.com/ekyna/BackendBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Etienne Dauvergne",
+            "homepage": "http://ekyna.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "ekyna/core-bundle": "0.1.x-dev",
+        "stfalcon/tinymce-bundle": "0.3.*@dev",
+        "lankit/datatables-bundle": "*",
+        "sylius/resource-bundle": "1.0.*@dev"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-0": { "Ekyna\\BackendBundle": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "Ekyna/BackendBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}

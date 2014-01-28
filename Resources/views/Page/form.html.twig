@@ -1,0 +1,29 @@
+{% form_theme form 'EkynaBackendBundle:Form:form_div_layout.html.twig' %}
+
+{% from 'EkynaBackendBundle:Macros:misc.html.twig' import metas %}
+
+<ul class="nav nav-tabs" id="form-tabs">
+    <li class="active"><a href="#general">Général</a></li>
+    <li><a href="#content">Contenu</a></li>
+    <li><a href="#metas">Référencement</a></li>
+</ul>
+
+<div class="tab-content">
+
+    <div class="tab-pane active" id="general">
+        {{ form_row(form.title) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.route) }}
+        {{ form_row(form.path) }}
+    </div>
+    
+    <div class="tab-pane" id="content">
+        {{ form_row(form.content) }}
+    </div>
+    
+    <div class="tab-pane" id="metas">
+        {{ metas(form.metas) }}
+    </div>
+    
+</div>
+{{ form_rest(form) }}

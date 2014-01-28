@@ -1,0 +1,31 @@
+{% extends 'EkynaBackendBundle:Layouts:entity.html.twig' %}
+
+{% from 'EkynaBackendBundle:Macros:actions.html.twig' import update %}
+
+{% block entity_title %}
+{{ 'ekyna.page.header.update'|trans({'%name%': page.name})|raw }}
+{% endblock %}
+
+{% block entity_actions %}
+{% endblock %}
+
+{% block entity_content %}
+<div class="form-page">
+    <form class="form-wrapper" action="{{ path('ekyna_backend_page_update', {'id': page.id}) }}" method="post" {{ form_enctype(form) }} novalidate>
+    
+        {% include 'EkynaBackendBundle:Page:form.html.twig' %}
+        
+        <div class="form-footer">
+        {{ update(path('ekyna_backend_page_show', {'id': page.id})) }}
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block entity_help %}
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+{{ tinymce_init() }}
+{% endblock %}

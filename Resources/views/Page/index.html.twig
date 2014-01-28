@@ -1,0 +1,24 @@
+{% extends 'EkynaBackendBundle:Layouts:content.html.twig' %}
+
+{% import 'EkynaBackendBundle:Macros:buttons.html.twig' as buttons %}
+{% from 'EkynaBackendBundle:Macros:misc.html.twig' import pagination %}
+{% from 'EkynaBackendBundle:Page:macros.html.twig' import tableHead, tableBody %}
+
+{% block content %}
+
+<div class="page-header">
+    <h2>{{ 'ekyna.page.header.manage'|trans|raw }}</h2>
+</div>
+
+<div class="table-wrapper">
+    {{ pagination(pages) }}
+    
+    <table class="table table-hover">
+    {{ tableHead(pages) }}
+    {{ tableBody(pages) }}
+    </table>
+    
+    {{ pagination(pages) }}
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'EkynaBackendBundle:Layouts:entity.html.twig' %}
+
+{% import 'EkynaBackendBundle:Macros:alerts.html.twig' as alerts %}
+{% import 'EkynaBackendBundle:Macros:buttons.html.twig' as buttons %}
+
+
+{% block entity_title %}
+    {{ 'ekyna.page.header.show'|trans({'%name%': page.name})|raw }}
+{% endblock %}
+
+{% block entity_actions %}
+    {{ buttons.edit(path('ekyna_backend_page_update', {'id': page.id})) }}
+    {{ buttons.manage(path('ekyna_backend_page_index'), 'ekyna.page.action.manage'|trans) }}
+{% endblock %}
+
+{% block entity_content %}
+<div class="show-wrapper">
+    <ul class="nav nav-tabs" id="form-tabs">
+        <li class="active"><a href="#general">General</a></li>
+        <li><a href="#description">Contenu</a></li>
+        <li><a href="#metas">Référencement</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="general">
+            {{ show_row(page.title, null, 'ekyna.core.field.title.label') }}
+            {{ show_row(page.name, null, 'ekyna.core.field.name.label') }}
+            {{ show_row(page.route, null, 'ekyna.core.field.route.label') }}
+            {{ show_row(page.path, 'url', 'ekyna.core.field.path.label') }}
+        </div>
+        <div class="tab-pane" id="description">
+            {{ show_row(page.content, 'tinymce', 'ekyna.core.field.description.label') }}
+        </div>
+        <div class="tab-pane" id="metas">
+            {{ show_row(page.metas, 'metas') }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block entity_side %}
+{% endblock %}

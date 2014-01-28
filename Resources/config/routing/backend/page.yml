@@ -1,0 +1,49 @@
+#ekyna_page_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: EkynaPageBundle:Default:index }
+
+ekyna_backend_page_index:
+    pattern: /
+    defaults:
+        _controller: ekyna.controller.page:indexAction
+        _sortable: true
+        _sorting:
+            name: desc
+    requirements:
+        _method: GET
+
+#ekyna_backend_page_create:
+#    pattern: /create
+#    defaults:
+#        _controller: ekyna.controller.page:createAction
+#        _sylius:
+#            redirect: ekyna_backend_page_show
+#    requirements:
+#        _method: GET|POST
+
+ekyna_backend_page_update:
+    pattern: /{id}/update
+    defaults:
+        _controller: ekyna.controller.page:updateAction
+        _sylius:
+            redirect: 
+                route: ekyna_backend_page_show
+                parameters: { id: $id }
+    requirements:
+        _method: GET|POST|PUT
+
+#ekyna_backend_page_delete:
+#    pattern: /{id}
+#    defaults:
+#        _controller: ekyna.controller.page:deleteAction
+#        _sylius:
+#            redirect: ekyna_backend_page_index
+#    requirements:
+#        _method: DELETE
+
+ekyna_backend_page_show:
+    pattern: /{id}
+    defaults:
+        _controller: ekyna.controller.page:showAction
+    requirements:
+        _method: GET

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+        {% block page_title %}Administration{% endblock %}
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+
+    {% block stylesheets %}
+    {% stylesheets output='css/backend.css' filter='cssrewrite, ?yui_css'
+        '@bootstrap_css'
+        '@fontawesome_css'
+        'bundles/ekynabackend/css/bootstrap-overrides.css'
+        
+        'bundles/ekynabackend/css/lib/bootstrap.datepicker.css'
+        'bundles/ekynabackend/css/lib/select2.css'
+        'bundles/ekynabackend/css/lib/uniform.default.css'
+        
+        'bundles/ekynabackend/css/layout.css'
+        'bundles/ekynabackend/css/elements.css'
+        'bundles/ekynabackend/css/ui-elements.css'
+        'bundles/ekynabackend/css/form.css'
+        'bundles/ekynabackend/css/show.css'
+        'bundles/ekynabackend/css/tables.css'
+        'bundles/ekynabackend/css/modal-gallery.css'
+    %}
+        <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    {% endblock %}
+
+    {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+
+    {% include 'EkynaBackendBundle:Layouts:modal-gallery.html.twig' %}
+    {% include 'EkynaBackendBundle:Layouts:modal.html.twig' %}
+
+    {% block javascripts %}
+    {% javascripts output='js/backend.js' filter='?closure'
+        'bundles/ekynacore/js/string.prototypes.js'
+        '@jquery'
+        '@bootstrap_js'
+        'bundles/ekynabackend/js/bootstrap.datepicker.js'
+        'bundles/ekynabackend/js/select2.min.js'
+        'bundles/ekynabackend/js/jquery.uniform.min.js'
+        'bundles/ekynabackend/js/forms.js'
+        'bundles/ekynabackend/js/load-image.js'
+        'bundles/ekynabackend/js/modal-gallery.js'
+        'bundles/ekynabackend/js/theme.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% endblock %}
+</body>
+</html>

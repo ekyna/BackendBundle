@@ -1,0 +1,53 @@
+ekyna:
+    admin:
+        login_header: Authentification
+        menu:
+            dashboard: Tableau de bord
+            homepage: Page d'accueil
+        button:
+            login: Connexion
+            manage: Gérer
+            show: Detail
+            create: Nouveau
+            edit: Modifier
+            delete: Supprimer
+            cancel: Annuler
+            submit:
+                create: Créer
+                update: Enregistrer
+        confirm:
+            delete: Êtes-vous sûr de vouloir supprimer cet élément ?
+        alert:
+            success: Succès
+            info: Information
+            warning: Attention
+            error: Erreur
+            no_image: Aucune image associé
+            no_item: Aucun élément configuré
+        gallery:
+            next: Suivante
+            previous: Précédente
+            slideshow: Diaporama
+        field:
+            title: Titre
+            subtitle: Sous-titre
+            description: Description
+            images: Images
+            file: Fichier
+            login: Identifiant
+            password: Mot de passe
+            remember_me: Se souvenir de moi
+    page:
+        label:
+            singular: Page
+            plural: Pages
+        header:
+            manage: Pages <small>Gérer les pages</small>
+            show: Detail de la page <small>%name%</small>
+            update: Modifier la page <small>%name%</small>            
+        action:
+            manage: Gérer les pages
+            show: Detail de la page
+            edit: Modifier la page
+        alert:
+          no_page: Aucune page configuré

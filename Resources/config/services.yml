@@ -1,0 +1,53 @@
+parameters:
+    ekyna_backend.menu.pool.class: Ekyna\BackendBundle\Menu\MenuPool
+    ekyna_backend.menu.builder.class: Ekyna\BackendBundle\Menu\BackendMenuBuilder
+    ekyna_backend.pagination.class: Ekyna\BackendBundle\Pagination\TwitterBootstrap3View
+    ekyna_backend.form_type_extension.class: Ekyna\BackendBundle\Form\Extension\FormTypeExtension
+    ekyna_backend.entity_type_extension.class: Ekyna\BackendBundle\Form\Extension\EntityTypeExtension
+    ekyna_backend.twig.show_extension.class: Ekyna\BackendBundle\Twig\ShowExtension
+
+services:
+    ekyna_backend.menu.pool:
+        class: %ekyna_backend.menu.pool.class%
+        
+    ekyna_backend.menu.builder:
+        class: %ekyna_backend.menu.builder.class%
+        arguments: ["@knp_menu.factory", "@security.context", "@translator", "@ekyna_backend.menu.pool"]
+        
+#    ekyna_backend.menu.main:
+#        class: Knp\Menu\MenuItem
+#        factory_service: ekyna_backend.menu.builder
+#        factory_method: createMainMenu
+#        arguments: ["@request"]
+#        scope: request
+#        tags:
+#            - { name: knp_menu.menu, alias: ekyna_backend.main }
+        
+    ekyna_backend.menu.side:
+        class: Knp\Menu\MenuItem
+        factory_service: ekyna_backend.menu.builder
+        factory_method: createSideMenu
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: ekyna_backend.side }
+
+    ekyna_backend.view.bootstrap:
+        class: %ekyna_backend.pagination.class%
+        public: false
+        tags: [{ name: pagerfanta.view, alias: backend_pagination }]
+
+    ekyna_backend.form_type_extension:
+        class: %ekyna_backend.form_type_extension.class%
+        tags:
+            - { name: form.type_extension, alias: form }
+
+    ekyna_backend.entity_type_extension:
+        class: %ekyna_backend.entity_type_extension.class%
+        tags:
+            - { name: form.type_extension, alias: entity }
+
+    ekyna.twig.show_extension:
+        class: %ekyna_backend.twig.show_extension.class%
+        tags:
+            - { name: twig.extension }

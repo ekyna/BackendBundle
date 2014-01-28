@@ -1,0 +1,43 @@
+{% extends 'EkynaBackendBundle::base.html.twig' %}
+
+{% block body %}
+    <!-- navbar -->
+    <header class="navbar navbar-inverse" role="banner">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" id="menu-toggler">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('ekyna_backend_dashboard') }}"><img src="{{ asset('bundles/ekynabackend/img/logo.png') }}"></a>
+        </div>
+        {% include 'EkynaBackendBundle:Layouts:navbar.html.twig' %}
+    </header>
+    <!-- end navbar -->
+    
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        {{ knp_menu_render('ekyna_backend.side', {'template': 'EkynaBackendBundle:Layouts:sidemenu.html.twig', 'currentClass': 'active', 'ancestorClass': 'active'}) }}
+    </div>
+    <!-- end sidebar -->
+    
+	<!-- main container -->
+    <div class="content">
+        <div id="pad-wrapper">
+        {% for type in ['success', 'error', 'info', 'warning'] %}
+            {% for message in app.session.flashbag.get(type) %}
+                {#% set type = type == 'warning' ? 'block' : type %#}
+                <div class="alert alert-{{ type }} alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+    <!-- end main container -->
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'EkynaBackendBundle:Layouts:content.html.twig' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 col-lg-8 entity-title">
+        <h2>{% block entity_title %}{% endblock %}</h2>
+    </div>
+    <div class="col-md-12 col-lg-4 entity-actions">
+    {% block entity_actions %}{% endblock %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-lg-8 entity-content">
+    {% block entity_content %}{% endblock %}
+    </div>
+    <div class="col-md-12 col-lg-4 entity-help">
+    {% block entity_side %}{% endblock %}
+    </div>
+</div>
+{% endblock %}
+
+{# 
+<!-- Child template -->
+{% block entity_title %}
+{% endblock %}
+
+{% block entity_actions %}
+{% endblock %}
+
+{% block entity_content %}
+{% endblock %}
+
+{% block entity_side %}
+{% endblock %}
+#}
